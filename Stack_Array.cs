@@ -1,22 +1,24 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Globalization;
 
 namespace Stack
 {
-    class Stack_Array : IStack
+    class Stack_Array<T> : IStack<T> where T : IComparable
     {
-        private int[] st;
+        private T[] st;
         private int amount = 0;
         public Stack_Array()
         {
-            st = new int[0];
+            st = new T[0];
         }
         public Stack_Array(int size)
         {
-            st = new int[size];
+            st = new T[size];
         }
         public bool isEmpty()
         {
@@ -24,7 +26,7 @@ namespace Stack
                 return true;
             return false;
         }
-        public void Push(int val)
+        public void Push(T val)
         {
             if (amount == st.Length)
                 throw new Exception("Переполнение стека.");
@@ -37,7 +39,7 @@ namespace Stack
             amount--;
             return true;
         }
-        public int Top()
+        public T Top()
         {
             if (amount == 0)
                 throw new Exception("Невозможно получить первый элемент стека. Стек пуст.");
