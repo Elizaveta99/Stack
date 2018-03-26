@@ -1,17 +1,19 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Globalization;
 
 namespace Stack
 {
-    class Stack_List : IStack
+    class Stack_List<T> : IStack<T> where T : IComparable
     {
-        private List<int> st;
+        private List<T> st;
         public Stack_List()
         {
-            st = new List<int>();
+            st = new List<T>();
         }
         public bool isEmpty()
         {
@@ -19,7 +21,7 @@ namespace Stack
                 return true;
             return false;
         }
-        public void Push(int val)
+        public void Push(T val)
         {
             st.Add(val);
         }
@@ -30,7 +32,7 @@ namespace Stack
             st.RemoveAt(st.Count - 1); 
             return true;
         }
-        public int Top()
+        public T Top()
         {
             if (st.Count == 0)
                 throw new Exception("Невозможно получить первый элемент стека. Стек пуст.");
