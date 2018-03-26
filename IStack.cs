@@ -1,17 +1,19 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Globalization;
 
 namespace Stack
 {
-    interface IStack
+    interface IStack<T>
     {
         bool isEmpty();
-        void Push(int val);
+        void Push(T val);
         bool Pop();
-        int Top();
+        T Top();
         int GetSize();
     }
 }
