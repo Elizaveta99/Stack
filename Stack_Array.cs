@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace Stack
 {
-    class Stack_Array<T> : IStack<T> where T : IComparable
+    class Stack_Array<T> : IStack<T> 
     {
         private T[] st;
         private int amount = 0;
@@ -20,7 +20,7 @@ namespace Stack
         {
             st = new T[size];
         }
-        public bool isEmpty()
+        public bool Empty()
         {
             if (amount == 0)
                 return true;
@@ -34,7 +34,7 @@ namespace Stack
         }
         public bool Pop()
         {
-            if (isEmpty())
+            if (Empty())
                 return false;
             amount--;
             return true;
@@ -45,7 +45,7 @@ namespace Stack
                 throw new Exception("Невозможно получить первый элемент стека. Стек пуст.");
             return st[amount - 1];
         }
-        public int GetSize()
+        public int Size()
         {
             return amount;
         }
