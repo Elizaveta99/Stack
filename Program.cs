@@ -27,7 +27,7 @@ namespace Stack
 
             try
             {
-                Console.WriteLine("Введите элемент стека или N, если хотите завершить ввод : ");
+                Console.WriteLine("Введите элемент стека(целое число) или N, если хотите завершить ввод : ");
                 while (true)
                 {
                     string temps = Console.ReadLine();
@@ -47,11 +47,11 @@ namespace Stack
                     return;
                 }
 
-                Console.WriteLine("Размер cтека (после удаления): {0}", stack.GetSize());
+                Console.WriteLine("Размер cтека (после удаления): {0}", stack.Size());
 
                 Console.WriteLine("Первый элемент стека после удаления : {0}", stack.Top().ToString());
 
-                if (stack.isEmpty()) Console.WriteLine("Стек пуст.");
+                if (stack.Empty()) Console.WriteLine("Стек пуст.");
             }
             catch (Exception ex)
             { 
@@ -61,3 +61,6 @@ namespace Stack
         }
     }
 }
+
+
+
