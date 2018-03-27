@@ -8,14 +8,14 @@ using System.Globalization;
 
 namespace Stack
 {
-    class Stack_List<T> : IStack<T> where T : IComparable
+    public class Stack_List<T> : IStack<T> 
     {
-        private List<T> st;
+        private LinkedList<T> st;
         public Stack_List()
         {
-            st = new List<T>();
+            st = new LinkedList<T>();
         }
-        public bool isEmpty()
+        public bool Empty()
         {
             if (st.Count == 0)
                 return true;
@@ -23,13 +23,13 @@ namespace Stack
         }
         public void Push(T val)
         {
-            st.Add(val);
+            st.AddLast(val);
         }
         public bool Pop()
         {
             if (st.Count == 0)
                 return false;
-            st.RemoveAt(st.Count - 1); 
+            st.RemoveLast(); 
             return true;
         }
         public T Top()
@@ -38,7 +38,7 @@ namespace Stack
                 throw new Exception("Невозможно получить первый элемент стека. Стек пуст.");
             return st.Last(); 
         }
-        public int GetSize()
+        public int Size()
         {
             return st.Count;
         }
