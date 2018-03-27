@@ -10,10 +10,10 @@ namespace Stack
 {
     interface IStack<T>
     {
-        bool isEmpty();
+        bool Empty();
         void Push(T val);
         bool Pop();
         T Top();
-        int GetSize();
+        int Size();
     }
 }
